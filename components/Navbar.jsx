@@ -3,9 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useWorkout } from "@/context/WorkoutContext";
 
-export default function Navbar({ planCount = 0, savedCount = 0 }) {
+
+export default function Navbar() {
   const pathname = usePathname();
+  const { plan, saved } = useWorkout();
 
   return (
     <nav className="border-b border-zinc-800 bg-black">
@@ -56,7 +59,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
           >
             <span>Plan</span>
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-[#ccff00]">
-              {planCount}
+              {plan.length}
             </span>
           </Link>
 
@@ -66,7 +69,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
           >
             <span>Saved</span>
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-800 text-xs text-gray-400 border border-zinc-700">
-              {savedCount}
+              {saved.length}
             </span>
           </Link>
         </div>
