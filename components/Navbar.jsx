@@ -11,7 +11,7 @@ export default function Navbar() {
   const { plan, saved } = useWorkout();
 
   return (
-    <nav className="border-b border-zinc-800 bg-black">
+    <nav className="sticky top-0 z-50 border-b border-zinc-800 bg-black/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
         
         <Link href="/" className="flex items-center gap-2">

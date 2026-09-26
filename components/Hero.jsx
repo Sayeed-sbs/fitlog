@@ -21,7 +21,7 @@ export default function Hero() {
           
           <a 
             href="#library" 
-            className="inline-flex items-center gap-2 rounded-full bg-[#ccff00] px-6 py-3.5 text-sm font-bold text-black transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#ccff00] px-8 py-4.5 text-sm font-bold text-black transition hover:opacity-90"
           >
             <span>BROWSE WORKOUTS</span>
             <svg 

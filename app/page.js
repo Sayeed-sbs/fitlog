@@ -32,7 +32,7 @@ export default function Home() {
         id="library"
         className="mx-auto max-w-7xl px-4 py-12"
       >
-        <h2 className="mb-2 text-2xl font-bold uppercase tracking-wider">
+        <h2 className="font-bold font-oswald text-3xl uppercase">
           THE LIBRARY
         </h2>
 

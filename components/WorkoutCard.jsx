@@ -21,22 +21,24 @@ export default function WorkoutCard({ workout }) {
           {workout.muscleGroups.map((group) => (
             <span
               key={group}
-              className="rounded-full bg-zinc-800 px-3 py-1 text-xs"
+              className="rounded-full bg-[#ccff00] px-3 py-1 text-xs font-bold text-black uppercase"
             >
               {group}
             </span>
           ))}
         </div>
 
-        <h3 className="mb-2 text-lg font-bold uppercase">
+        <h3 className="mb-1 text-lg font-bold uppercase">
           {workout.name}
         </h3>
 
-        <p className="mb-4 text-sm text-zinc-400">
+        <p className="mb-2 text-sm text-zinc-400">
           {workout.equipment}
         </p>
 
-        <div className="flex items-center justify-between text-xs text-zinc-400">
+        <div className="mt-3 border-t border-zinc-800 pt-3"></div>
+
+        <div className="flex items-center flex gap-4 text-xs text-zinc-400">
           <span>{workout.duration} min</span>
           <span>{workout.caloriesBurned} kcal</span>
           <span>⭐ {workout.rating}</span>
