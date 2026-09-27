@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LuArrowRight } from "react-icons/lu";
 
 export default function Hero() {
   return (
@@ -24,7 +25,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 rounded-lg bg-[#ccff00] px-8 py-4.5 text-sm font-bold text-black transition hover:opacity-90"
           >
             <span>BROWSE WORKOUTS</span>
-         
+            <LuArrowRight className="w-4 h-4" />
           </a>
         </div>
 

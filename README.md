@@ -52,7 +52,7 @@ FitLog is a workout library and workout planning web application built with Next
 Clone the repository:
 
 ```bash
-git clone (https://github.com/Sayeed-sbs/fitlog.git)
+git clone https://github.com/Sayeed-sbs/fitlog.git
 ```
 
 Install dependencies:

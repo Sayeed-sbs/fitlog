@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useWorkout } from "@/context/WorkoutContext";
 import { toast } from "react-toastify";
+import { LuChevronDown } from "react-icons/lu";
 
 function PlanContent() {
   const { plan, saved, removeFromPlan, removeFromSaved } = useWorkout();
@@ -108,15 +109,18 @@ function PlanContent() {
 
         <div className="flex items-center cursor-pointer gap-2 text-xs text-zinc-500 font-bold uppercase tracking-wider">
           <span>Sort By</span>
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="bg-[#131416] border border-zinc-800 cursor-pointer rounded-lg px-3 py-2 text-white font-medium focus:outline-none"
-          >
-            <option value="duration">Duration</option>
-            <option value="calories">Calories</option>
-            <option value="rating">Rating</option>
-          </select>
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="appearance-none bg-[#131416] border border-zinc-800 cursor-pointer rounded-lg pl-3 pr-8 py-2 text-white font-medium focus:outline-none"
+            >
+              <option value="duration">Duration</option>
+              <option value="calories">Calories</option>
+              <option value="rating">Rating</option>
+            </select>
+            <LuChevronDown className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-500" />
+          </div>
         </div>
       </div>
 
@@ -178,7 +182,7 @@ function PlanContent() {
                         onClick={() => handleDone(workout.id)}
                         className="flex items-center gap-1 rounded-full bg-[#ccff00] px-5 py-2 text-sm font-semibold text-black transition hover:opacity-90 cursor-pointer"
                       >
-                        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-3.5 h-3.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-3.5 h-3.5">
                           <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                         </svg>
                         <span>Mark as Done</span>
