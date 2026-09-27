@@ -1,6 +1,6 @@
 ## Live Project
 
-Live Link: https://fitlog-lilac-nine.vercel.app/
+Live Link: https://fitlog-saitrox.vercel.app/
 
 # FitLog
 
