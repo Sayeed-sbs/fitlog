@@ -83,12 +83,12 @@ function PlanContent() {
       </div>
 
       <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex rounded-full bg-[#131416] p-1 border border-zinc-900 max-w-xs">
+       <div className="flex gap-1 rounded-full bg-[#131416] p-1 border border-zinc-900 max-w-xs">
           <button
             onClick={() => setActiveTab("plan")}
             className={`rounded-full px-6 py-2 text-xs font-bold uppercase tracking-wider transition ${
               activeTab === "plan"
-                ? "bg-zinc-800 text-[#ccff00]"
+                ? "bg-black text-[#ccff00]"
                 : "text-zinc-500 hover:text-white"
             }`}
           >
@@ -99,7 +99,7 @@ function PlanContent() {
             onClick={() => setActiveTab("saved")}
             className={`rounded-full px-6 py-2 text-xs font-bold uppercase tracking-wider transition ${
               activeTab === "saved"
-                ? "bg-zinc-800 text-[#ccff00]"
+                ? "bg-black text-[#ccff00]"
                 : "text-zinc-500 hover:text-white"
             }`}
           >
@@ -169,7 +169,7 @@ function PlanContent() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 self-end sm:self-center">
+                  <div className="flex flex-wrap items-center gap-3 self-start sm:self-center">
                     <Link
                       href={`/workout/${workout.id}`}
                       className="rounded-full border border-zinc-800 px-5 py-2 text-sm font-normal text-zinc-400 transition hover:bg-zinc-900 hover:text-white"
