@@ -31,7 +31,6 @@ export default function WorkoutDetailsClient({ workout }) {
   return (
     <div className="flex flex-wrap gap-4 mt-4 font-sans">
       
-      {/* Primary: Inter Semibold Weight style */}
       <button
         onClick={handleAddToPlan}
         className="flex items-center gap-2 rounded-lg bg-[#ccff00] px-5 py-2.5 text-sm font-semibold text-black transition hover:opacity-90 cursor-pointer tracking-normal normal-case"
@@ -42,7 +41,6 @@ export default function WorkoutDetailsClient({ workout }) {
         <span>Add to today's plan</span>
       </button>
 
-      {/* Secondary: Inter Regular Weight style */}
       <button
         onClick={handleAddToSaved}
         className="flex items-center gap-2 rounded-lg border border-zinc-850 bg-[#131416]/50 px-5 py-2.5 text-sm font-normal text-zinc-300 transition hover:bg-zinc-900 cursor-pointer tracking-normal normal-case"

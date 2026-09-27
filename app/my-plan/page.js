@@ -1,12 +1,12 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, Suspense } from "react"; 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useWorkout } from "@/context/WorkoutContext";
 import { toast } from "react-toastify";
 
-export default function MyPlanPage() {
+function PlanContent() {
   const { plan, saved, removeFromPlan, removeFromSaved } = useWorkout();
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState("plan");
@@ -200,5 +200,17 @@ export default function MyPlanPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function MyPlanPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center min-h-screen bg-black text-white">
+        <span className="loading loading-spinner loading-lg text-[#ccff00]"></span>
+      </div>
+    }>
+      <PlanContent />
+    </Suspense>
   );
 }
