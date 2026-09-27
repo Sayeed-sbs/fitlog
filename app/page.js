@@ -25,24 +25,24 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-black min-h-screen text-white font-sans">
       <Hero />
 
       <section
         id="library"
         className="mx-auto max-w-7xl px-4 py-12"
       >
-        <h2 className="font-bold font-oswald text-3xl uppercase">
+        <h2 className="font-bold text-3xl uppercase tracking-wide font-[family-name:var(--font-oswald)]">
           THE LIBRARY
         </h2>
 
-        <p className="mb-8 text-sm text-zinc-400">
+        <p className="mb-8 text-sm text-zinc-400 font-normal">
           Twelve lifts covering every major muscle group.
         </p>
 
         {loading ? (
           <div className="flex justify-center py-20">
-            <span className="loading loading-spinner loading-lg"></span>
+            <span className="loading loading-spinner loading-lg text-[#ccff00]"></span>
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

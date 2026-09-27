@@ -24,16 +24,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 rounded-lg bg-[#ccff00] px-8 py-4.5 text-sm font-bold text-black transition hover:opacity-90"
           >
             <span>BROWSE WORKOUTS</span>
-            <svg 
-              xmlns="http://w3.org" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              strokeWidth={3} 
-              stroke="currentColor" 
-              className="w-4 h-4"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-            </svg>
+         
           </a>
         </div>
 

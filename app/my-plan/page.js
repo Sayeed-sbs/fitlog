@@ -1,14 +1,25 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useWorkout } from "@/context/WorkoutContext";
 import { toast } from "react-toastify";
 
 export default function MyPlanPage() {
   const { plan, saved, removeFromPlan, removeFromSaved } = useWorkout();
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState("plan");
   const [sortBy, setSortBy] = useState("duration");
+
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam === "saved") {
+      setActiveTab("saved");
+    } else if (tabParam === "plan") {
+      setActiveTab("plan");
+    }
+  }, [searchParams]);
 
   const workouts = activeTab === "plan" ? [...plan] : [...saved];
 
@@ -95,12 +106,12 @@ export default function MyPlanPage() {
           </button>
         </div>
 
-        <div className="flex items-center gap-2 text-xs text-zinc-500 font-bold uppercase tracking-wider">
+        <div className="flex items-center cursor-pointer gap-2 text-xs text-zinc-500 font-bold uppercase tracking-wider">
           <span>Sort By</span>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="bg-[#131416] border border-zinc-800 rounded-lg px-3 py-2 text-white font-medium focus:outline-none"
+            className="bg-[#131416] border border-zinc-800 cursor-pointer rounded-lg px-3 py-2 text-white font-medium focus:outline-none"
           >
             <option value="duration">Duration</option>
             <option value="calories">Calories</option>
@@ -174,15 +185,13 @@ export default function MyPlanPage() {
                       </button>
                     )}
 
-                  <button
+                    <button
                       onClick={() => handleRemove(workout.id)}
-                      className="text-zinc-600 transition hover:text-red-400 cursor-pointer text-xxl font-light p-1 ml-2 leading-none flex items-center justify-center h-6 w-6"
+                      className="text-zinc-600 transition hover:text-red-400 cursor-pointer text-2xl sm:text-3xl p-1 ml-1 leading-none font-light flex items-center justify-center h-8 w-8"
                       aria-label={`Remove ${workout.name}`}
                     >
                       ×
                     </button>
-
-                    
                   </div>
                 </div>
               </div>

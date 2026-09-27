@@ -1,8 +1,10 @@
 import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css"; 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { WorkoutProvider } from "@/context/WorkoutContext";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,6 +32,11 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+           <ToastContainer 
+            position="bottom-right" 
+            autoClose={3000} 
+            theme="dark" 
+          />
         </WorkoutProvider>
       </body>
     </html>
