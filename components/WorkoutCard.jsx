@@ -39,8 +39,8 @@ export default function WorkoutCard({ workout }) {
         <div className="mt-3 border-t border-zinc-800 pt-3"></div>
 
         <div className="flex items-center flex gap-4 text-xs text-zinc-400">
-          <span>{workout.duration} min</span>
-          <span>{workout.caloriesBurned} kcal</span>
+          <span>⏱️{workout.duration} min</span>
+          <span>🔥{workout.caloriesBurned} kcal</span>
           <span>⭐ {workout.rating}</span>
         </div>
       </div>

@@ -1,10 +1,11 @@
+## Live Project
+
+Live Link: https://fitlog-lilac-nine.vercel.app/
+
 # FitLog
 
 FitLog is a workout library and workout planning web application built with Next.js. Users can browse different exercises, view workout details, save workouts for later, and create a daily workout plan.
 
-## Live Project
-
-Live Link: 
 
 ## Technologies Used
 

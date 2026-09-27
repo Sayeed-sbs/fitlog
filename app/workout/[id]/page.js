@@ -2,13 +2,23 @@ import { getWorkout } from "@/lib/api";
 import Image from "next/image";
 import WorkoutDetailsClient from "@/components/WorkoutDetailsClient";
 
-export default async function WorkoutDetails({ params }) {
-  const { id } = await params;
+export default async function WorkoutDetails(props) {
+  const params = await props.params;
+  const id = params.id;
 
   const workout = await getWorkout(id);
 
+  if (!workout) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-4 bg-black text-white font-sans">
+        <h2 className="text-xl font-bold text-[#ccff00] mb-2 uppercase">Workout Not Found</h2>
+        <p className="text-zinc-500 text-sm">The exercise data cannot be found or the server link is currently down.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 bg-black text-white">
+    <div className="mx-auto max-w-7xl px-4 py-10 bg-black text-white font-sans">
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="relative h-[500px] overflow-hidden rounded-3xl">
           <Image
@@ -20,11 +30,11 @@ export default async function WorkoutDetails({ params }) {
         </div>
 
         <div>
-          <h1 className="mb-4 text-4xl font-black uppercase">
+          <h1 className="mb-4 text-4xl font-bold uppercase tracking-wide font-[family-name:var(--font-oswald)]">
             {workout.name}
           </h1>
 
-          <p className="mb-6 text-zinc-400">
+          <p className="mb-6 text-zinc-400 text-sm leading-relaxed font-normal">
             {workout.description}
           </p>
 
@@ -32,7 +42,7 @@ export default async function WorkoutDetails({ params }) {
             {workout.muscleGroups.map((group) => (
               <span
                 key={group}
-                className="rounded-full bg-[#ccff00] px-3 py-1 text-sm font-bold text-black uppercase"
+                className="rounded-full bg-[#ccff00] px-3 py-1 text-sm font-semibold text-black uppercase"
               >
                 {group}
               </span>
@@ -43,46 +53,48 @@ export default async function WorkoutDetails({ params }) {
             <div className="divide-y divide-zinc-800 text-sm">
               <div className="flex justify-between py-3">
                 <span className="text-zinc-500 uppercase font-bold tracking-wider text-xs">Equipment</span>
-                <span className="text-zinc-300">{workout.equipment}</span>
+                <span className="text-zinc-300 font-medium">{workout.equipment}</span>
               </div>
 
               <div className="flex justify-between py-3">
                 <span className="text-zinc-500 uppercase font-bold tracking-wider text-xs">Difficulty</span>
-                <span className="text-zinc-300">{workout.difficulty}</span>
+                <span className="text-zinc-300 font-medium">{workout.difficulty}</span>
               </div>
 
               <div className="flex justify-between py-3">
                 <span className="text-zinc-500 uppercase font-bold tracking-wider text-xs">Sets</span>
-                <span className="text-zinc-300">{workout.sets}</span>
+                <span className="text-zinc-300 font-medium">{workout.sets}</span>
               </div>
 
               <div className="flex justify-between py-3">
                 <span className="text-zinc-500 uppercase font-bold tracking-wider text-xs">Reps</span>
-                <span className="text-zinc-300">{workout.reps}</span>
+                <span className="text-zinc-300 font-medium">{workout.reps}</span>
               </div>
 
               <div className="flex justify-between py-3">
                 <span className="text-zinc-500 uppercase font-bold tracking-wider text-xs">Duration</span>
-                <span className="text-zinc-300">{workout.duration} min</span>
+                <span className="text-zinc-300 font-medium">{workout.duration} min</span>
               </div>
 
               <div className="flex justify-between py-3">
                 <span className="text-zinc-500 uppercase font-bold tracking-wider text-xs">Calories</span>
-                <span className="text-zinc-300">{workout.caloriesBurned} kcal</span>
+                <span className="text-zinc-300 font-medium">{workout.caloriesBurned} kcal</span>
               </div>
 
               <div className="flex justify-between py-3">
                 <span className="text-zinc-500 uppercase font-bold tracking-wider text-xs">Rating</span>
-                <span className="text-zinc-300">{workout.rating}</span>
+                <span className="text-zinc-300 font-medium">{workout.rating}</span>
               </div>
             </div>
           </div>
 
-          <h2 className="mb-4 text-xl font-bold uppercase">
+        
+          <h2 className="mb-4 text-xl font-extrabold uppercase tracking-wide">
             Instructions
           </h2>
 
-          <ol className="mb-8 list-none space-y-3 pl-0 text-zinc-300">
+          
+          <ol className="mb-8 list-none space-y-3 pl-0 text-zinc-300 text-sm font-normal leading-relaxed">
             {workout.instructions.map((step, index) => (
               <li key={index} className="flex gap-2">
                 <span className="text-zinc-500 font-bold">{index + 1}.</span>
@@ -92,7 +104,7 @@ export default async function WorkoutDetails({ params }) {
           </ol>
 
           <div className="flex flex-wrap gap-4">
-          <WorkoutDetailsClient workout={workout} />
+            <WorkoutDetailsClient workout={workout} />
           </div>
         </div>
       </div>

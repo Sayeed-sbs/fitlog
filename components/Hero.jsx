@@ -10,7 +10,7 @@ export default function Hero() {
             WORKOUT LIBRARY
           </p>
           
-          <h1 className="text-4xl md:text-[56px] font-black tracking-tight text-white uppercase leading-tight mb-6">
+          <h1 className="text-4xl md:text-[56px] font-extrabold tracking-tight text-white uppercase leading-tight mb-6 font-[family-name:var(--font-oswald)]">
             TRAIN WITH INTENT. LOG <br />EVERY SET.
           </h1>
           
